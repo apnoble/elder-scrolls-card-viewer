@@ -6,6 +6,8 @@
     --primaryDark: #111;
     --secondaryDark: #222;
     --backgroundColor: #000;
+    --imageHeight: 497px;
+    --imageWidth: 300px;
 }
 
 * {
@@ -24,4 +26,23 @@ a {
 
 p {
     margin: 0.5em;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    align-items: flex-start;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-info {
+    width: 50px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
 }

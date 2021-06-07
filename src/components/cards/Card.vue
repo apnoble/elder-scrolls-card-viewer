@@ -2,7 +2,7 @@
    <div>
         <div class="col" style="width:100%">
             <div class="row" style="justify-content:center;">
-                <img class="card-image loading-img" :src="card.imageUrl" loading="lazy" @load="loadedImg($event)" :style="customStyle">
+                <img class="card-image loading-img" :src="card.imageUrl" loading="lazy" @load="loadedImg($event)">
             </div>
             <div class="row" style="width:100%">
                 <div class="info" style="width:100%;">
@@ -15,8 +15,8 @@
                         <div class="col">{{ card.text }}</div>
                     </div>
                     <div class="row card-info-row">
-                        <div class="col col-info"><span class="label">Set Name:</span></div>
-                        <div class="col">{{ card.setName }}</div>
+                        <div class="col col-info"><span class="label">Set:</span></div>
+                        <div class="col">{{ card.set.name }}</div>
                     </div>
                     <div class="row card-info-row">
                         <div class="col col-info"><span class="label">Type:</span></div>
@@ -53,8 +53,15 @@ export default {
     },
 }
 </script>
+
 <style lang="css" scoped>
 
+.card-image {
+    height: var(--imageHeight);
+    width: var(--imageWidth);
+}
 
-
+.card-info-row {
+    margin-bottom: 5px;
+}
 </style>
