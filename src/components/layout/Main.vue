@@ -1,7 +1,7 @@
 <template>
   <div>
         <div class="main-container">
-            <card-grid></card-grid>
+            <router-view />
         </div>
   </div>
 </template>
@@ -9,8 +9,13 @@
 export default {
   name: 'Main',
   components: {
-      CardGrid: () => import('../cards/CardGrid.vue')
+
   }
 }
 </script>
-<style></style>
+<style>
+.main-container{
+    margin-top: 5rem;
+}
+
+</style>

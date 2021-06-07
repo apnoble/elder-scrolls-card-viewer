@@ -1,14 +1,35 @@
 <template>
   <div class="home">
+    <div class="about row" style="align-items: center; justify-content: center">
+      <div class="col">
+        <div class="row" style="align-items: center; justify-content: center">
+          <h1>All Cards</h1>
+        </div>
+        <grid-container></grid-container>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "Home",
   components: {
-
+    GridContainer: () => import("../components/layout/GridContainer.vue"),
+  },
+  data() {
+    return {};
   },
 };
 </script>
+
+<style lang="css" scoped>
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0.5rem 0;
+}
+
+</style>

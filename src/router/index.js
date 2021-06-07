@@ -19,6 +19,20 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/cards/all",
+    name: "all",
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: Home,
+  },
+  /* send all other requests to not found */
+//   {
+//     path:"/:catchAll(.*)",
+//     name:"notfound",
+//     component: () => import("../views/NotFound.vue"),
+//   }
 ];
 
 const router = new VueRouter({
