@@ -1,7 +1,7 @@
 <template>
   <div>
         <div class="main-container">
-            Main Works
+            <card-grid></card-grid>
         </div>
   </div>
 </template>
@@ -9,7 +9,7 @@
 export default {
   name: 'Main',
   components: {
-
+      CardGrid: () => import('../cards/CardGrid.vue')
   }
 }
 </script>
