@@ -32,4 +32,14 @@ p {
   margin: 0.5rem 0;
 }
 
+.about{
+    margin:0;
+    color:#fff;
+    margin-top:5rem;
+    width: 100%;
+  }
+  .about .col{
+    padding:0rem;
+    font-size:1.2rem !important;
+  }
 </style>

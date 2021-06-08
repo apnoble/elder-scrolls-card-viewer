@@ -6,6 +6,10 @@
     --primaryDark: #111;
     --secondaryDark: #222;
     --backgroundColor: #000;
+    --legendary: #db9e1d;
+    --epic: #753d88; /*  //#c651b4; */
+    --rare: #2897d2;
+    --common: #bcbcb9;
     --imageHeight: 497px;
     --imageWidth: 300px;
 }
@@ -229,5 +233,78 @@ p {
             -1.8em 1.8em 0 0em rgba(255, 255, 255, 0.5),
             -2.6em 0em 0 0em rgba(255, 255, 255, 0.7),
             -1.8em -1.8em 0 0em #ffffff;
+    }
+}
+
+/* ------------------------media queries---------------------  */
+@media only screen and (max-width: 690px) {
+    .container {
+        width: 90%;
+    }
+
+    .toolbar-items {
+        width: 70%;
+        margin: auto;
+        display: block !important;
+        text-align: center;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    .toolbar{
+        padding:.5rem;
+    }
+
+    .main-header{
+        font-size:1.5rem;
+    }
+
+   /*  #cardGrid {
+        margin-top: 6rem;
+    } */
+
+    .card-image {
+        height: var(--imageSmallHeight);
+        width: var(--imageSmallWidth);
+        margin: auto !important;
+    }
+
+    .search-container form .row {
+        flex-direction: row;
+    }
+
+    /* #rarity {
+        float: right;
+    } */
+
+    .about, .not-found{
+        margin-top:6rem !important;
+    }
+    
+}
+
+@media only screen and (max-width: 500px) {
+    .info-background{
+        width: 70% !important;
+        margin-bottom: 3rem;
+    }
+
+    .info-background .row{
+        padding:0;
+        font-size:1rem !important;
+    }
+
+    .about .row h2{
+        margin-left:0 !important;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .card-image {
+        height: var(--imageXSmallHeight);
+        width: var(--imageXSmallWidth);
+        margin: auto !important;
     }
 }
