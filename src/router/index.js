@@ -37,11 +37,11 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Search.vue"),
   },
   /* send all other requests to not found */
-//   {
-//     path:"/:catchAll(.*)",
-//     name:"notfound",
-//     component: () => import("../views/NotFound.vue"),
-//   }
+  {
+    path:"/:catchAll(.*)",
+    name:"notfound",
+    component: () => import("../views/NotFound.vue"),
+  }
 ];
 
 const router = new VueRouter({

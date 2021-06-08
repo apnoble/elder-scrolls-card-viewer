@@ -5,7 +5,7 @@
             <div class="row" style="align-items:center; justify-content:center;">
                 <h1>Search Results</h1>
             </div>
-           <grid-container :search-mode="true" :loading-search="searchLoading"></grid-container>
+            <grid-container :search-mode="true" :loading-search="searchLoading"></grid-container>
         </div>
     </div>
   </div>

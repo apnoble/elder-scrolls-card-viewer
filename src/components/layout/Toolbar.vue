@@ -124,5 +124,12 @@ export default {
     align-items: center;
     justify-content: space-evenly;
 }
-    
+
+/* this makes it so that the search button's color matches the rest of the search bar when it is focused */
+input:focus + button {
+    box-shadow: 0 -1px 0 #c4c2ad,
+                1px 0 0 #c4c2ad,
+                0 1px 0 #c4c2ad,
+                0 0 0 #c4c2ad
+}
 </style>
