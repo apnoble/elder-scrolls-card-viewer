@@ -15,16 +15,15 @@
                 </div>
             </div>
             <!--  -->
-            
-
         </div>
     </header>
 </template>
 
 <script>
-
-// import router from "../../router/index.js";
+import {mapGetters, mapActions} from "vuex";
+import router from "../../router/index.js";
 import {constants} from '../../constants.js';
+
 export default {
     name: 'ToolBar',
     data(){
@@ -35,10 +34,26 @@ export default {
         }
     },
     computed: {
-        
+        ...mapGetters(['search'])
     },
     methods:{
-        
+        ...mapActions(['updateSearchTerm', 'customSearch']),
+        searchFunc: function(){
+            this.updateSearchTerm(this.searchTerm);
+            if(this.$route.path != '/search'){
+                router.push('/search');
+            }
+            else{
+                this.customSearch();
+            }
+                
+        },
+        changeRoute: function(event){
+            if(event.target.value.toLowerCase() === 'all')
+                router.push(`/`);
+            else
+                router.push(`/cards/${event.target.value.toLowerCase()}`)
+        }
     }
 }
 </script>
@@ -90,8 +105,6 @@ export default {
     cursor: pointer;
 }
 
-    
-/*  top toolbar */
 .toolbar {
     position: fixed;
     top:0;

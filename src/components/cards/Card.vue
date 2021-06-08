@@ -64,4 +64,16 @@ export default {
 .card-info-row {
     margin-bottom: 5px;
 }
+
+.loading-img {
+    filter: blur(4px);
+    transition: filter 1s;
+    background-color:#333;
+}
+
+.loaded-img {
+    filter: blur(0);
+    background-color:transparent;
+}
+
 </style>

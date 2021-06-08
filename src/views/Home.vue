@@ -5,7 +5,7 @@
         <div class="row" style="align-items: center; justify-content: center">
           <h1>All Cards</h1>
         </div>
-        <grid-container></grid-container>
+        <grid-container :search-mode="false"></grid-container>
       </div>
     </div>
   </div>
