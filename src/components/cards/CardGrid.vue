@@ -18,6 +18,10 @@ export default {
 </script>
 <style lang="css" scoped>
     #cardGrid{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        height: 100%;
         width:100%
     }
 

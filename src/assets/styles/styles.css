@@ -1,6 +1,6 @@
 /* ------------------------custom variables---------------------  */
 
-:root {    
+:root {
     --primaryColor: #a29e76;
     --secondaryColor: #c4c2ad;
     --primaryDark: #111;
@@ -10,6 +10,10 @@
     --epic: #753d88; /*  //#c651b4; */
     --rare: #2897d2;
     --common: #bcbcb9;
+    --imageSmallHeight: 414px;
+    --imageSmallWidth: 250px;
+    --imageXSmallHeight: 373px;
+    --imageXSmallWidth: 225px;
     --imageHeight: 497px;
     --imageWidth: 300px;
 }
