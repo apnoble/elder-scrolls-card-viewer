@@ -6,14 +6,20 @@ This project is a vue.js app that utilizes the public Elder Scrolls Legends API 
 
 It uses vuex to manage app state and vue router to handle page navigation.
 
+## Live Demo
+
+Check out the live demo here: [Live Demo](https://apnoble.github.io/elder-scrolls-card-viewer/)
+
 ## Project setup
 
-In the project's root directory run the command:
+After cloning the repo or downloading and extracting a zip of the project navigate to the project's root directory and  
+
+run the command:
 ```
 npm install
 ```
 
-### To run
+### To Run Locally with Hot Module Replacement
 
 Execute the command
 ```
