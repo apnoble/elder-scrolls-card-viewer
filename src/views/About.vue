@@ -17,20 +17,16 @@
       <h2>Description</h2>
       <ul>
         <li>
-          <p>This project is a frontend <a class="vue-green" href="https://vuejs.org/" target="_blank">vue.js</a> app that utilizes the public elderscrollslegends api to display 
-            various card information.
+          <p>This project is a <a class="vue-green" href="https://vuejs.org/" target="_blank">vue.js</a> app that utilizes the public Elder Scrolls Legends API to display 
+            card images and card info.
           </p>
         </li>
         <li>
           <p>
-            Uses <a class="vue-green" href="https://vuex.vuejs.org//" target="_blank">vuex</a> to manage app state.
+            It uses <a class="vue-green" href="https://vuex.vuejs.org//" target="_blank">vuex</a> to manage app state and <a class="vue-green" href="https://router.vuejs.org/" target="_blank">vue router</a> to handle page navigation.
           </p>
         </li>
-        <li>
-            <p>
-              Uses <a class="vue-green" href="https://router.vuejs.org/" target="_blank">vue router</a> to handle page navigation.
-            </p>
-        </li>
+        
         <li>
             <p>Key Dependencies: <code><small>{{appInfo.dependencies}}</small></code></p>           
         </li>
@@ -38,17 +34,23 @@
 
       <h2>How To Use</h2>
       <ul>
-        <li><p>Search for cards with the navigation menu or search bar.</p></li>
+        <li><p>Display all cards on the home page or search for specific cards by name with the search bar.</p></li>
       </ul>
 
       <h2>More Info</h2>
       <ul>
         <li>
-          <p>More information about the api can be found at the following link: 
+          <p>More information about the API can be found at the following link: 
           <a href="https://docs.elderscrollslegends.io/#documentationgetting_started" target="_blank">
             Elder Scrolls Legends API
-          </a>
-        </p></li>
+          </a></p>
+        
+          <p>This app was created by Alex Noble: 
+          <a href="https://github.com/apnoble">GitHub</a>
+          <span>   -   </span>
+          <a href="https://www.linkedin.com/in/apnoble/">LinkedIn</a>
+          </p>
+        </li>
       </ul>
       <back-home-button variant="primary"></back-home-button>
     </div>
