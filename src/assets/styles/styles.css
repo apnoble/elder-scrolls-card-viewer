@@ -72,6 +72,24 @@ p {
     width: 100%;
 }
 
+.txt-center{
+    text-align: center;
+}
+
+.justify-center{
+    justify-content:center;
+}
+
+.align-center{
+    align-items:center;
+}
+
+.info-background{
+    background: var(--secondaryDark);
+    border: 1px solid var(--primaryColor);
+    padding: 2rem !important;
+}
+
 /* ------------------------transitions---------------------  */
 
 .fade-enter-active, .fade-leave-active {

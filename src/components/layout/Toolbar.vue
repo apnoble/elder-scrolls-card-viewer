@@ -8,8 +8,8 @@
                 <div class="search-container">
                     <div class="row">
                         <div class="mobile-row">
-                            <input @keyup.enter="searchFunc($event)" v-model="searchTerm" type="text" placeholder="Search.." name="search">
-                            <button @click.prevent="searchFunc($event)" type="submit"><i class="fa fa-search"></i></button>
+                            <input @keyup.enter="searchFunc($event)" ref="search" v-model="searchTerm" type="text" placeholder="Search.." name="search">
+                            <button @click.prevent="searchFunc($event)" ref="searchBtn" type="submit"><i class="fa fa-search"></i></button>
                         </div>
                     </div>
                 </div>
@@ -37,16 +37,15 @@ export default {
         ...mapGetters(['search'])
     },
     methods:{
-        ...mapActions(['updateSearchTerm', 'customSearch']),
+        ...mapActions(['updateSearchTerm', 'customSearch', 'focus']),
         searchFunc: function(){
-            this.updateSearchTerm(this.searchTerm);
-            if(this.$route.path != '/search'){
-                router.push('/search');
+            if(this.searchTerm){
+                this.updateSearchTerm(this.searchTerm);
+                (this.$route.path != '/search') ? router.push('/search') : this.customSearch();
             }
             else{
-                this.customSearch();
+                this.focus(this.$refs.search);
             }
-                
         },
         changeRoute: function(event){
             if(event.target.value.toLowerCase() === 'all')
@@ -54,6 +53,9 @@ export default {
             else
                 router.push(`/cards/${event.target.value.toLowerCase()}`)
         }
+    },
+    mounted(){
+       this.focus(this.$refs.search);
     }
 }
 </script>

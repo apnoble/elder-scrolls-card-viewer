@@ -1,43 +1,26 @@
 <template>
   <div class="search">
     <div class="about row align-center justify-center">
-      <div class="col">
-        <div class="row align-center justify-center">
-          <div v-if="!this.search.loading" class="txt-center">
-            <div v-if="this.search.term">
-              <h1 v-if="resultsToShow">
-                Search Results for "{{ this.search.term }}"
-              </h1>
-              <h1 v-else>No Search Results for "{{ this.search.term }}"</h1>
-            </div>
-            <div
-              v-else
-              class="row none align-center"
-              style="align-items: center; justify-content: center"
-            >
-              <div class="col info-background">
-                <h1>Search</h1>
-                <hr />
-                <h2>
-                  Use the search bar at the top of the screen to search for
-                  cards by name.
-                </h2>
-                <h2>
-                  Put the name in double quotes for an exact match, otherwise
-                  partial matching will be applied.
-                </h2>
-                <back-home-button variant="primary"></back-home-button>
+        <div class="col">
+            <div class="row align-center justify-center">
+              <div v-if="!this.search.loading" class="txt-center">
+                  <div v-if ="this.search.term">
+                    <h1 v-if="resultsToShow">Search Results for "{{this.search.term}}"</h1>
+                    <h1 v-else>No Search Results for "{{this.search.term}}"</h1>
+                  </div>
+                  <div v-else class="row none align-center" style="align-items:center; justify-content:center;">
+                    <div class="col info-background">
+                        <h1>Search</h1>
+                        <hr>
+                        <h2>Use the search bar at the top of the screen to search for cards by name.</h2>
+                        <h2>Put the name in double quotes for an exact match, otherwise partial matching will be applied.</h2>
+                        <back-home-button variant="primary"></back-home-button>
+                    </div>    
+                  </div>
               </div>
             </div>
-          </div>
+           <grid-container :search-mode="true" :loading-search="searchLoading"></grid-container>
         </div>
-        <grid-container
-          :rarity="rarity"
-          :favorite-mode="false"
-          :search-mode="true"
-          :loading-search="searchLoading"
-        ></grid-container>
-      </div>
     </div>
   </div>
 </template>
@@ -108,5 +91,12 @@ ul {
 }
 .search {
   margin-top: 6rem;
+}
+
+@media only screen and (max-width: 690px) {
+
+    .search-container form .row {
+        flex-direction: row;
+    }
 }
 </style>
