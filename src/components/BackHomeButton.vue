@@ -1,6 +1,6 @@
 <template>
     <router-link class="link-item" to="/" exact>
-        <div :style="customStyle">            
+        <div>            
             <i class="fa fa-arrow-circle-o-left" aria-hidden="true"><span> Back Home</span></i>
         </div>
     </router-link>
@@ -11,18 +11,12 @@
 import router from "../router/index.js";
 
 export default {
-    props:{
-        customStyle:{
-            type: String,
-            required: false
-        }
-    },
-    data() {
-        return {
 
-        }
+    data() {
+        return { }
     },
     methods:{
+        // navigates back to the home page
         backHome: function(){
             router.push({path:'/'});
         }

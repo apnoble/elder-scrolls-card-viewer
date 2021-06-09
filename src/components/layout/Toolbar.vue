@@ -1,23 +1,18 @@
 <template>
     <header class="toolbar row">
         <div class="toolbar-items">
-            <!-- header -->
             <h1 class="main-header"><router-link tag="li" class="col" class-active="active" to="/" exact>{{header}}</router-link></h1>
             <div class="search-row">
-
                 <div>
                     <router-link class="no-link-line" to="/" exact>
                         <i class="fa fa-home fa-2x primary-txt mobile-only pointer" aria-hidden="true"></i>
                     </router-link>
-
-                    
                 </div>
                 <div>
                     <router-link to="/about">
                         <i class="fa fa-info fa-2x primary-txt mobile-only pointer"></i>
                     </router-link>
                 </div>
-                
                 <div class="search-container">
                     <div class="row">
                         <div class="mobile-row">
@@ -26,8 +21,6 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     </header>
@@ -43,7 +36,6 @@ export default {
     data(){
         return {
             header: constants.HEADER,
-            
             searchTerm: ""
         }
     },
@@ -69,7 +61,8 @@ export default {
         }
     },
     mounted(){
-       this.focus(this.$refs.search);
+        // sets focus to the search bar
+        this.focus(this.$refs.search);
     }
 }
 </script>

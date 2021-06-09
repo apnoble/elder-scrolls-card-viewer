@@ -56,6 +56,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import {mapGetters} from 'vuex';
 export default {
@@ -69,6 +70,7 @@ export default {
   }
 }
 </script>
+
 <style lang="css" scoped>
   h1,h2,h3,h4 {
     margin: 0;

@@ -1,5 +1,4 @@
 /* ------------------------custom variables---------------------  */
-
 :root {
     --primaryColor: #a29e76;
     --secondaryColor: #c4c2ad;
@@ -17,7 +16,7 @@
     --imageHeight: 497px;
     --imageWidth: 300px;
 }
-
+/* ---------------------------------------------------------------  */
 * {
     margin: 0;
     padding: 0;
@@ -72,24 +71,27 @@ p {
     width: 100%;
 }
 
-.txt-center{
-    text-align: center;
-}
-
-.justify-center{
-    justify-content:center;
-}
-
-.align-center{
-    align-items:center;
-}
-
 .info-background{
     background: var(--secondaryDark);
     border: 1px solid var(--primaryColor);
     padding: 2rem !important;
 }
 
+/* ------------------------CSS shortcut classes---------------------  */
+/* This just a class to quickly center text */
+.txt-center{
+    text-align: center;
+}
+
+/* This just a class to quickly justify content */
+.justify-center{
+    justify-content:center;
+}
+/* This just a class to quickly align items */
+.align-center{
+    align-items:center;
+}
+/* -------------------------------------------------------------------  */
 /* ------------------------transitions---------------------  */
 
 .fade-enter-active, .fade-leave-active {
@@ -118,7 +120,9 @@ p {
     background: var(--primaryColor) !important;
     border-radius: 10px;
 }
+/* ---------------------------------------------------------------  */
 
+/* ------------------------Spinner and Animations---------------------  */
 /* loading spinner css */
 .loader {
     margin: 100px auto;
@@ -296,9 +300,10 @@ p {
             -1.8em -1.8em 0 0em #ffffff;
     }
 }
+/* ---------------------------------------------------------------  */
 
 /* ------------------------media queries---------------------  */
-@media only screen and (max-width: 690px) {
+ @media only screen and (max-width: 690px) {
     .container {
         width: 90%;
     }

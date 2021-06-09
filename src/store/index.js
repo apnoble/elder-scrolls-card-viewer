@@ -106,9 +106,9 @@ export default new Vuex.Store({
         },
     },
     actions: {
-        // retreive cards data from api
+        // retrieve cards data from api
         async getCards({ state, commit }, { rarity, pageNumber }) {
-            console.log(rarity, pageNumber);
+            
             // check to see if we already have the pages cached
             if (!(pageNumber in state.cards[rarity].pages)) {
 
@@ -146,6 +146,7 @@ export default new Vuex.Store({
             }
         },
 
+        // when a user is searching by term we use this call
         async customSearch({ state, commit }) {
             if (state.search.term) {
                 commit("setSearchLoading", true);

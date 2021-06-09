@@ -3,10 +3,12 @@
         <main class="container">
             <card-grid v-if="searchMode" :cards="searchCopy"></card-grid>
             <card-grid v-else :cards="cardsCopy"></card-grid>
+
             <div v-if="this.loading || this.loadingSearch" style="margin-top:2rem">
                 <div class="loader">Loading...</div>
             </div>
         </main>
+        <!-- loadMore is an element that the infinite scroll observes and anchors to -->
         <div :id="loadMoreID" :ref="loadMoreID" class="loadMore"></div>
     </div>
 </template>
@@ -37,10 +39,12 @@ export default {
 
     data(){
         return {
+            // these are flags to make it so that the loading works properly on infinite scroll
             loading: false,
             registered: false,
+            loadingMore: false,
+            // this is the element that the infinite scroll observer anchors too
             loadMoreElement: Element,
-            loadingMore: false
         }
     },
 
@@ -74,6 +78,7 @@ export default {
         loadCards: async function(){
             this.loadingMore = true;
             this.showLoading();
+            // makes an api call for the next page of cards
             await this.getCards({rarity: "all", pageNumber: this.pageNumber });
             this.hideLoading();
             this.loadingMore = false;
@@ -88,11 +93,8 @@ export default {
 
                 // observer will get new cards when in view
                 let observer = new IntersectionObserver((entry) => {
-                    console.log("observer")
                     // if we're not currently loading more and we are intersecting on screen
                     if (entry[0].isIntersecting && !this.loadingMore) {
-
-                        console.log("if");
                         this.loadCards('all');
                     }
                   

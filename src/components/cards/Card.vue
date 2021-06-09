@@ -51,15 +51,18 @@ export default {
         }
     },
     computed: {
+        // changes the cards rarity to lowercase so it will match the css selector
         rarityColorClass: function() {
             let rarity = this.card.rarity.toLowerCase();
             return `col ${rarity}`;
         },
+        // the attributes will display in the wrong format as an array if we convert it to one string joined by commas
         attributes: function(){
             return this.card.attributes.join(', ');
         }
     },
     methods: {
+        // this method blurs the images as they are loading
         loadedImg: function(e) {
             e.target.classList.remove('loading-img');
             e.target.classList.add('loaded-img');
@@ -112,7 +115,7 @@ export default {
     color: #bcbcb9;
 }
 
-
+/* border colors based on rarity */
 .legendary-card {
     border: 2px solid var(--legendary);
 }
@@ -126,6 +129,7 @@ export default {
     border: 2px solid var(--common);
 }
 
+/* component specific media query styling */
 @media only screen and (max-width: 690px) {
     .card-image {
         height: var(--imageSmallHeight);
