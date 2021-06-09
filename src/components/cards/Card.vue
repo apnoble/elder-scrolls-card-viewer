@@ -126,6 +126,22 @@ export default {
     border: 2px solid var(--common);
 }
 
+@media only screen and (max-width: 690px) {
+    .card-image {
+        height: var(--imageSmallHeight);
+        width: var(--imageSmallWidth);
+        margin: auto !important;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .card-image {
+        height: var(--imageXSmallHeight);
+        width: var(--imageXSmallWidth);
+        margin: auto !important;
+    }
+}
+
 /* corner diamond element for rarity */
 .legendary-card::after {
     content: "";

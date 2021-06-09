@@ -125,6 +125,19 @@ export default {
     justify-content: space-evenly;
 }
 
+@media only screen and (max-width: 690px) {
+
+    .toolbar-items {
+        width: 70%;
+        margin: auto;
+        display: block !important;
+        text-align: center;
+    }
+
+    .toolbar{
+        padding:.5rem;
+    }
+}
 /* this makes it so that the search button's color matches the rest of the search bar when it is focused */
 input:focus + button {
     box-shadow: 0 -1px 0 #c4c2ad,

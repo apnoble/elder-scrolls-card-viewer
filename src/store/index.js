@@ -30,7 +30,7 @@ export default new Vuex.Store({
             cards: [],
             pages: {},
             link: `${constants.STARTING_LINK}?page=${constants.STARTING_PAGE}&pageSize=${constants.PAGE_SIZE}&name=`,
-            term:"",
+            term: "",
             page: 1,
             loading: false
         },
@@ -59,22 +59,27 @@ export default new Vuex.Store({
         }
     },
     mutations: {
-        setCards: (state, { cards, link, page }) => {
-            // replace objects rather than overwrite to insure reactivity
-            let copy = { ...state.cards };
-            let temp = [...copy.all.cards, ...cards];
-            copy.all.cards = temp;
-            copy.all.page = page;
-            copy.all.link = link;
-
-            if (!(page in copy.all.pages)) {
-                copy.all.pages[page] = [...cards];
-            } else {
-                copy.all.pages[page] = [...copy.all.pages[page], ...cards];
-            }
-
-            copy.all.pages[page] = [...copy.all.pages[page], ...cards];
-            state.cards = { ...copy };
+        // set the cards state after copying and applying changes
+        setCards: (state, {cards, rarity, link}) => {
+        
+            // copy the current state
+            const copy = {...state.cards};
+            
+            // destructure from copy 
+            const {page, pages} = copy[rarity];        
+            
+            // update the list of cards with the new cards
+            copy[rarity].cards = [...copy[rarity].cards, ...cards];
+            
+            // add the page of cards to the page cache if it's not there already
+            if(!(page in pages)) copy[rarity].pages[page] = [...cards] ;
+            
+            // update link and page
+            copy[rarity].link = link; 
+            copy[rarity].page += 1;
+    
+            // overwrite state cards
+            state.cards = copy;
         },
         setLink: (state, link) => (state.link = link),
         setTotalCount: (state, totalPages) => (state.totalPages = totalPages),
@@ -102,12 +107,14 @@ export default new Vuex.Store({
     },
     actions: {
         // retreive cards data from api
-        async getCards({ state, commit }) {
+        async getCards({ state, commit }, { rarity, pageNumber }) {
+            console.log(rarity, pageNumber);
             // check to see if we already have the pages cached
-            if (!(state.page in state.cards.all.pages)) {
+            if (!(pageNumber in state.cards[rarity].pages)) {
+
                 // try to get cards from api
                 try {
-                    const { link } = state.cards.all;
+                    const { link } = state.cards[rarity];
                     let tempLink = link;
 
                     // wait for the api to respond
@@ -117,23 +124,24 @@ export default new Vuex.Store({
                         let json = await response.json();
 
                         // update relevant card info
-                        commit("setTotalCount", json._totalCount);
-                        commit("setLink", json._links.next);
-                        commit("setPage", state.page + 1);
+                        commit('setTotalCount', json._totalCount);
+                        commit('setLink', json._links.next);
 
                         let tempLink = json._links.next;
+                        if (rarity != "all") {
+                            tempLink += `&rarity=${rarity}`;
+                        }
+                        // set the cards in state
+                        commit('setCards', { cards: json.cards, rarity, link: tempLink });
 
-                        commit("setCards", {
-                            cards: json.cards,
-                            link: tempLink,
-                            page: state.page,
-                        });
+                        // increment the page
+                        commit('setPage', state.page + 1);
+
                     } else {
                         console.log("HTTP-Error: " + response.status);
                     }
                 } catch (error) {
-                    //commit('setError', error);
-                    console.log(error);
+                    console.log(error)
                 }
             }
         },
@@ -163,6 +171,13 @@ export default new Vuex.Store({
 
         updateSearchTerm({ commit }, searchTerm) {
             commit("setSearchTerm", searchTerm);
+        },
+        // focus on a focusable element, such as the searchbar
+        focus({state}, element){
+            if(state && element instanceof HTMLElement && element.focus)
+            {
+                element.focus();
+            }
         },
     },
     modules: {},

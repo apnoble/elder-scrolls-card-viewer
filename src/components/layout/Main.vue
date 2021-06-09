@@ -2,7 +2,9 @@
   <div>
         <toolbar></toolbar>
         <div class="main-container">
-            <router-view />
+            <transition name="fade" mode="out-in">
+                <router-view />
+            </transition>
         </div>
   </div>
 </template>
