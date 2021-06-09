@@ -1,24 +1,39 @@
-# elder-scrolls-card-viewer
+# Elder Scrolls Card Viewer
+
+## Description
+
+This project is a vue.js app that utilizes the public Elder Scrolls Legends API to display card images and card info.
+
+It uses vuex to manage app state and vue router to handle page navigation.
 
 ## Project setup
+
+In the project's root directory run the command:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### To run
+
+Execute the command
 ```
 npm run serve
 ```
+in the project directory then navigate to the provided local host address in your browser.
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### Features to be added in later versions
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* The ability to sort by card rarity and set.
+* Unit testing
+
+### Notes
+
+More information about the API can be found at the following link: [Elder Scrolls Legends API](https://docs.elderscrollslegends.io/#documentationgetting_started)
+
+This app was created by Alex Noble: [GitHub](https://github.com/apnoble) - [LinkedIn](https://www.linkedin.com/in/apnoble/)
+
+Thank you!
+
+## Screenshot of Running App
+![alt text](cardviewerscreenshot.PNG "Screenshot of App")
